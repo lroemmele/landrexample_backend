@@ -1,5 +1,5 @@
 const express = require('express');
-const passhash = require('password-hash-and-salt');
+const bcrypt = require('bcrypt');
 const router = express.Router();
 
 const User = require('../../../models/user');
@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
 
 //New user
 router.post('/', function(req, res) {
-    let password = passhash(req.body.password).hash(function(error, hash) {
+    bcrypt.hash(req.body.password, 13, function(error, hash) {
         if(error)
             throw new Error(`Unable to hash password for user: ${req.body.username}`);
 
@@ -47,13 +47,13 @@ router.get('/:user_id', function(req, res) {
 
 //Update user by id (change password)
 router.put('/:user_id', function(req, res) {
-    let password = passhash(req.body.password).hash(function(error, hash) {
+    bcrypt.hash(req.body.password, 13, function(error, hash) {
         if (error)
             throw new Error(`Unable to hash password for user: ${req.body.username}`);
 
         User.findById(req.params.user_id, function(err, user) {
-           if(err)
-               res.send(err);
+            if(err)
+                res.send(err);
 
             user.password = hash;
             user.modify_date = Date.now();
