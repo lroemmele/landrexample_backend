@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>TEST</title>
+    <meta name="description" content="TEST">
+    <meta name="author" content="landr">
+
+    <link rel="stylesheet" href="/public/css/style.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+Users -----------------------------<br>
+<button onclick="getUsers();">Get Users</button><br>
+
+<button onclick="addUser($('#new_username').val(), $('#new_password').val());">Add User</button>
+<input type="text" id="new_username" value="username"/>
+<input type="text" id="new_password" value="password"/>
+<br>
+
+<button onclick="getUserById($('#get_user_id').val());">Get User By ID</button>
+<input type="text" id="get_user_id" value="user id"/>
+<br>
+
+<button onclick="changePassword($('#change_pass_user_id').val(), $('#change_pass_new_pass').val());">Change Password</button>
+<input type="text" id="change_pass_user_id" value="user id"/>
+<input type="text" id="change_pass_new_pass" value="password"/><br>
+
+<button onclick="deleteUser($('#delete_user_id').val());">Delete User By ID</button>
+<input type="text" id="delete_user_id" value="user id"/>
+<br>
+
+<button onclick="getUserTasks($('#get_user_tasks_user_id').val());">Get User Tasks</button>
+<input type="text" id="get_user_tasks_user_id" value="user id"/>
+<br>
+
+<button onclick="addUserTask($('#add_user_task_user_id').val(), $('#add_user_task_task_id').val());">Add Task for User</button>
+<input type="text" id="add_user_task_user_id" value="user id"/>
+<input type="text" id="add_user_task_task_id" value="task id"/>
+<br>
+
+<button onclick="deleteUserTask($('#delete_user_task_user_id').val(), $('#delete_user_task_task_id').val());">Delete Task for User</button>
+<input type="text" id="delete_user_task_user_id" value="user id"/>
+<input type="text" id="delete_user_task_task_id" value="task id"/>
+<br>
+
+Tasks -------------------------------<br>
+<button onclick="getTasks();">Get All Tasks</button>
+<br>
+
+<button onclick="addTask($('#new_task_title').val(), $('#new_task_details').val());">Add New Task</button>
+<input type="text" id="new_task_title" value="title"/>
+<input type="text" id="new_task_details" value="details"/>
+<br>
+
+<button onclick="getTaskById($('#get_task_task_id').val());">Get Task By ID</button>
+<input type="text" id="get_task_task_id" value="task id"/>
+<br>
+
+<button onclick="updateTask($('#update_task_task_id').val(), $('#update_task_title').val(), $('#update_task_details').val(), $('#update_task_completed').val());">Update Task By ID</button>
+<input type="text" id="update_task_task_id" value="task id"/>
+<input type="text" id="update_task_title" value="title"/>
+<input type="text" id="update_task_details" value="details"/>
+<input type="text" id="update_task_completed" value="completed? (true or false)"/>
+<br>
+
+<button onclick="deleteTask($('#delete_task_task_id').val());">Delete Task By ID</button>
+<input type="text" id="delete_task_task_id" value="task id"/>
+<br>
+
+Response Output -----------------------------------<br>
+<br><br>
+<span id="output">Output will show here.</span>
+<br>
+<script type="text/javascript" src="public/js/scripts.js"></script>
+</body>
+</html>
