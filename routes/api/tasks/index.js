@@ -54,7 +54,7 @@ router.put('/:task_id', function(req, res) {
                 task.complete_date = Date.now();
                 task.completed = true;
             } else {
-                task.completed_date = null;
+                task.complete_date = null;
                 task.completed = false;
             }
         }
